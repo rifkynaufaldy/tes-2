@@ -1,0 +1,1356 @@
+{
+	"info": {
+		"_postman_id": "9e71519b-5ae1-4c11-a108-75b838cdaed7",
+		"name": "Market Final Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22685010"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "full_name",
+									"value": "rifky",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "rifky@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "089507483034",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "jogja",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "city",
+									"value": "jogja",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base.url}}/auth/register",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "rifky@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base.url}}/auth/login",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find user by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "access_token",
+									"value": "{{access_token}}",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base.url}}/auth/user?access_token={{access_token}}",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"auth",
+								"user"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{access_token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "full_name",
+									"value": "rifky naufaldy",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "rifky@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "089507483034",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "jogja",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "city",
+									"value": "jogja",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base.url}}/auth/user?access_token={{access_token}}",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"auth",
+								"user"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{access_token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "current_password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "new_password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "confirm_password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base.url}}/auth/change-password?access_token={{access_token}}",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"auth",
+								"change-password"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{access_token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seller-Product",
+			"item": [
+				{
+					"name": "create product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "MACBOOK PRO M1",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "MACBOOK PRO M1",
+									"type": "text"
+								},
+								{
+									"key": "base_price",
+									"value": "6500000",
+									"type": "text"
+								},
+								{
+									"key": "category_ids",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "jogja",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/mac/Downloads/615940ea1d591-2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base.url}}/seller/product?access_token={{access_token}}",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"seller",
+								"product"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{access_token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base.url}}/seller/product",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"seller",
+								"product"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{access_token}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find product by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "id",
+								"value": "10",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1056",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base.url}}/seller/product/1208?access_token={{access_token}}",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"seller",
+								"product",
+								"1208"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{access_token}}"
+								},
+								{
+									"key": "id",
+									"value": "1056",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update product by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "id",
+								"value": "id",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "iphone 12 pro maxxx",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "iphone nih bos",
+									"type": "text"
+								},
+								{
+									"key": "base_price",
+									"value": "12000000",
+									"type": "text"
+								},
+								{
+									"key": "category_ids",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "solo",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/mac/Downloads/615940ea1d591-2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base.url}}/seller/product/1208",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"seller",
+								"product",
+								"1208"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{access_token}}",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "id",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete product by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "id",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base.url}}/seller/product/1056",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"seller",
+								"product",
+								"1056"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{access_token}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seller-Order",
+			"item": [
+				{
+					"name": "get orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "status",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base.url}}/seller/order?status=accepted",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"seller",
+								"order"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "accepted"
+								},
+								{
+									"key": "access_token",
+									"value": "{{access_token}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch order by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "id",
+								"value": "2",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base.url}}/seller/order/1191",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"seller",
+								"order",
+								"1191"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1110",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit order by id",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "status",
+								"value": "multipart/form-data",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "status",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base.url}}/seller/order/1191",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"seller",
+								"order",
+								"1191"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch order by product id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							},
+							{
+								"key": "product_id",
+								"value": "2",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{base.url}}/seller/order/product/?access_token={{access_token}}&product_id=1190",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"seller",
+								"order",
+								"product",
+								""
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{access_token}}"
+								},
+								{
+									"key": "product_id",
+									"value": "1190"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seller-Category",
+			"item": [
+				{
+					"name": "show all category id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base.url}}/seller/category",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"seller",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show category by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "id",
+								"value": "2",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base.url}}/seller/category/2",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"seller",
+								"category",
+								"2"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seller-Banner",
+			"item": [
+				{
+					"name": "show banner",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base.url}}/seller/banner",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"seller",
+								"banner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show banner by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base.url}}/seller/banner/?id=2",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"seller",
+								"banner",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Buyer-Product",
+			"item": [
+				{
+					"name": "show all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base.url}}/buyer/product",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"buyer",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show product by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base.url}}/buyer/product/11",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"buyer",
+								"product",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Buyer-Order",
+			"item": [
+				{
+					"name": "create order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"product_id\": 16,\n  \"bid_price\": 1000000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base.url}}/buyer/order",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"buyer",
+								"order"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{access_token}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get order",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base.url}}/buyer/order",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"buyer",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get order by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base.url}}/buyer/order/:id",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"buyer",
+								"order",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1110"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit order by id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"bid_price\": 1000000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base.url}}/buyer/order/1191",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"buyer",
+								"order",
+								"1191"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete order by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base.url}}/buyer/order/1",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"buyer",
+								"order",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Buyer-Wishlist",
+			"item": [
+				{
+					"name": "add wishlist",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "333",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base.url}}/buyer/wishlist",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"buyer",
+								"wishlist"
+							],
+							"query": [
+								{
+									"key": "product_id",
+									"value": "333",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all wishlist",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base.url}}/buyer/wishlist",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"buyer",
+								"wishlist"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get wishlist by ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base.url}}/buyer/wishlist/1",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"buyer",
+								"wishlist",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete wishlist by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base.url}}/buyer/wishlist/1",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"buyer",
+								"wishlist",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "History",
+			"item": [
+				{
+					"name": "get history",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base.url}}/history",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get history by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base.url}}/history/1",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"history",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "get notification",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "notification_type",
+									"value": "buyer",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base.url}}/notification?notification_type=seller",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"notification"
+							],
+							"query": [
+								{
+									"key": "notification_type",
+									"value": "seller"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get notification by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base.url}}/notification/1",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"notification",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch notification by id",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "access_token",
+								"value": "{{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base.url}}/notification/4021",
+							"host": [
+								"{{base.url}}"
+							],
+							"path": [
+								"notification",
+								"4021"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
